@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+.list {
+justify-self: center; 
+border: 2px solid black;
+display: flex;
+justify-content:space-between ;
+margin-top: 20px;
+padding: 10px;
+}
+
+    </style>
+ 
+</head>
+<body>
+
+<div class=" flex justify-self-center employee-form pb-10 pt-10 ">
+    <form  class="form-control flex gap-4 " id="loginForm" action="" onsubmit="" autocomplete="off"   >
+<div>
+<label for="">Employee Name:</label>
+<br>
+<input  class="form-control border border-black " type="text"  name="employee-name" id="employee-name"  >
+</div>
+
+<div>
+<label>Date of Joining:</label>
+<br>
+<input class=" border border-black " type="date" name="date-of-joining" id="joining-date">
+</div>
+<div>
+<label>Salary:</label>
+<br>
+<input class=" border border-black " type="text" name="salary-of-employee" id="employee-salary">
+</div>
+<div>
+<label>Active/inactive:</label>
+<br>
+<div class="flex gap-1 " >
+    
+<input class=" border border-black " type="" name="active" id="status">
+</div>
+
+</div>
+</div>
+
+<div  class="flex justify-self-center" >
+<button  class="bg-gray-200 px-4 border border-black  rounded-xl justify-self-center "  type="submit">Add</button>
+</div>
+<p class="flex bw-fit  justify-self-center  mt-8 "   id="demo" ></p> 
+<!-- <button  type="submit" >Submit</button>
+<input type="text" id="username" class="form-control" >
+</div> -->
+
+<div>
+
+<div class="list" id="" >
+<table  id="table" >
+<thead >
+<div  class= "flex gap-10" >
+    <div> 
+        <h5 class="text-lg font-semibold "  id="" >|Employee Name|</h5>
+        <h6  class="font-semibold" id="first-employee-id"  ></h6>
+</div>
+
+    <br>
+    <div>
+    <h5 class="text-lg font-semibold " id="" > |joining-date|</h5>
+    <h6  class="font-semibold" id="joining-date-of-employee" ></h6>
+</div>
+
+<div>
+    <h5 class="text-lg font-semibold "  id="" >|Salary|</h5>
+    <h6 class="font-semibold" id="salary-of-employee" ></h6>
+
+</div>
+
+<div >
+    <h5 class="text-lg font-semibold " id="" >|Status|</h5>
+    <h6 class="font-semibold" id="status-of-employee" ></h6>
+
+</div  >
+<div>
+  <h5 class="text-lg font-semibold " >| Action |</h5>
+
+</div>
+
+</div>
+</thead>
+
+
+
+</table>
+
+
+</div>
+
+
+       
+<script>
+
+
+
+
+
+
+
+const loginForm = document.getElementById('loginForm')
+loginForm.addEventListener("submit",(e) =>{
+    e.preventDefault()
+    let employeename = document.getElementById('employee-name')
+    let dateofjoining = document.getElementById('joining-date');
+    const PElement = document.querySelector("#first-employee-id")
+    const joiningdate = document.querySelector("#joining-date-of-employee")
+    const employeesalary = document.querySelector("#salary-of-employee")
+    const employeestatus = document.querySelector("#status-of-employee")
+
+    let data = document.getElementById('demo')
+    let statusofemployee = document.getElementById('status');
+    let salary = document.getElementById('employee-salary');
+    
+    if(employeename.value == "" || dateofjoining.value == "" || salary.value == "" || statusofemployee ==""  ){
+        alert("Kindly fill the form!")
+    }
+    else{
+        // alert("Your form has been submitted")
+    
+        PElement.innerHTML = ( `${employeename.value}`);
+        joiningdate.innerHTML = ( `${dateofjoining.value}`);
+        employeesalary.innerHTML = ( `${salary.value}`);
+        employeestatus.innerHTML = ( `${statusofemployee.value}`);
+   
+// console.log(`The name of employee is ${employeename.value},joining date of ${employeename.value} is ${dateofjoining.value}, salary of ${employeename.value} is ${salary.value}, and staus of ${employeename.value} is ${statusofemployee.value}.`)
+}   
+
+    employeename.value = "";
+        dateofjoining.value = "";
+        salary.value = "";
+        statusofemployee.value = "";
+})
+
+    
+</script>
+
+
+
+</body>
+</html>
