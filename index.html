@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&family=Big+Shoulders:opsz,wght@10..72,100..900&family=DM+Serif+Text:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+Todhri&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        body{
+        
+            background-color: rgba(66, 80, 82, 0.253);
+        }
+
+        label{
+            font-family: "Big Sholuder",sans-serif;
+        }
 
 .list {
 justify-self: center; 
@@ -16,138 +29,193 @@ margin-top: 20px;
 padding: 10px;
 }
 
+input{
+    border: none;
+    border-radius: 4px;
+    /* border: 2px solid gray; */
+}
+
+.d-none{
+    display: none;
+}
+
     </style>
  
 </head>
 <body>
 
-<div class=" flex justify-self-center employee-form pb-10 pt-10 ">
-    <form  class="form-control flex gap-4 " id="loginForm" action="" onsubmit="" autocomplete="off"   >
+<h1  class="text-3xl font-semibold  justify-self-center pt-4 " >Crud operations</h1>
+
+<div class=" flex justify-self-center items-center employee-form pb-10 pt-10 ">
+    <form  class="form-control flex gap-4 " id="loginForm" action=""  autocomplete="off"   >
 <div>
-<label for="">Employee Name:</label>
+<label class="pl-2 font-semibold text-gray-600 " for="">Employee Name:</label>
 <br>
-<input  class="form-control border border-black " type="text"  name="employee-name" id="employee-name"  >
+<input  class="form-control border pl-2 mt-2 pt-1 pb-0.5 border-black " type="text"  name="employee-name" id="employee-name" placeholder="Enter name"  >
 </div>
 
 <div>
-<label>Date of Joining:</label>
+<label  class="font-semibold text-gray-600" >Date of Joining:</label>
 <br>
-<input class=" border border-black " type="date" name="date-of-joining" id="joining-date">
+<input class=" mt-2 border border-black py-0.5" type="date" name="date-of-joining" id="joining-date">
 </div>
 <div>
-<label>Salary:</label>
+<label class="font-semibold text-gray-600" >Salary:</label>
 <br>
-<input class=" border border-black " type="text" name="salary-of-employee" id="employee-salary">
+<input class=" mt-2 border border-black pl-2 py-1 " type="text" name="salary-of-employee" id="employee-salary" placeholder="Enter salary" >
 </div>
 <div>
-<label>Active/inactive:</label>
+<label class="font-semibold text-gray-600" >Active/inactive:</label>
 <br>
 <div class="flex gap-1 " >
     
-<input class=" border border-black " type="" name="active" id="status">
-</div>
-
-</div>
-</div>
-
-<div  class="flex justify-self-center" >
-<button  class="bg-gray-200 px-4 border border-black  rounded-xl justify-self-center "  type="submit">Add</button>
-</div>
-<p class="flex bw-fit  justify-self-center  mt-8 "   id="demo" ></p> 
-<!-- <button  type="submit" >Submit</button>
-<input type="text" id="username" class="form-control" >
-</div> -->
-
-<div>
-
-<div class="list" id="" >
-<table  id="table" >
-<thead >
-<div  class= "flex gap-10" >
-    <div> 
-        <h5 class="text-lg font-semibold "  id="" >|Employee Name|</h5>
-        <h6  class="font-semibold" id="first-employee-id"  ></h6>
-</div>
-
-    <br>
+    <input class=" mt-2 border border-black pl-2 py-1 " type="" name="active" id="status" placeholder="status" >
     <div>
-    <h5 class="text-lg font-semibold " id="" > |joining-date|</h5>
-    <h6  class="font-semibold" id="joining-date-of-employee" ></h6>
+    
+    <button onclick="addEntry()"  class=" mt-2 bg-green-600 flex text-white px-4 py-1 border border-black border-none hover:bg-green-700   rounded justify-self-center font-medium  items-center gap-2 ml-4 "  >Add    </button>
 </div>
+</div>
+<!-- <img class="w-5 h-5 items-center " src="images/icon.png" alt=""> -->
+</div>
+
+
+</div>
+
+<p class="flex bw-fit  justify-self-center  mt-8 "   id="demo" ></p> 
+
+
+
 
 <div>
-    <h5 class="text-lg font-semibold "  id="" >|Salary|</h5>
-    <h6 class="font-semibold" id="salary-of-employee" ></h6>
+<table class="border-2 bg-green-500  border-black justify-self-center w-9/12 "  >  
 
-</div>
+<thead class="" >
+    <tr id= "" >
+        <td  class="text-lg font-semibold text-white " > Employee Name </td>
+        <td class="text-lg font-semibold text-white " >Joining Date</td>
+        <td class="text-lg font-semibold text-white " > Salary </td>
+        <td class="text-lg font-semibold text-white " > Status </td>
+        <th class="text-lg font-semibold text-white " > Action </th>
 
-<div >
-    <h5 class="text-lg font-semibold " id="" >|Status|</h5>
-    <h6 class="font-semibold" id="status-of-employee" ></h6>
-
-</div  >
-<div>
-  <h5 class="text-lg font-semibold " >| Action |</h5>
-
-</div>
-
-</div>
+    </tr>
 </thead>
 
+<tbody class="" id="employees-lists" >
+<tr id="row1" >
+    
+    <td id="first-employee-id" ></td>
+    <td id="joining-date-of-employee" ></td>
+    <td id="salary-of-employee" ></td>
+    <td id="status-of-employee"  ></td>
+    
+    <td  class=" button-to-delete-row cursor-pointer" onclick="remove()"  >Delete</td
+        >
+    
+    
+</tr>
+
+
+
+
+</tbody>
 
 
 </table>
 
 
+    
+</div>
+
 </div>
 
 
-       
+
 <script>
 
 
 
 
+function values(){
+
+var input = document.getElementById('#employee-name')
+input.value = "newValue"
+
+}
+
+
+
+function remove(){
+const element = document.querySelector("#row1");
+element.remove();
+let deletebutton = document.querySelector("#button-to-delete-row")
+deletebutton.style.display = ""
+}
 
 
 
 const loginForm = document.getElementById('loginForm')
 loginForm.addEventListener("submit",(e) =>{
-    e.preventDefault()
-    let employeename = document.getElementById('employee-name')
-    let dateofjoining = document.getElementById('joining-date');
-    const PElement = document.querySelector("#first-employee-id")
-    const joiningdate = document.querySelector("#joining-date-of-employee")
-    const employeesalary = document.querySelector("#salary-of-employee")
-    const employeestatus = document.querySelector("#status-of-employee")
 
+    e.preventDefault()
+    const PElement = document.querySelector("#first-employee-id")
+    let deletebutton = document.querySelector("#button-to-delete-row")
+    
+    
     let data = document.getElementById('demo')
     let statusofemployee = document.getElementById('status');
     let salary = document.getElementById('employee-salary');
     
-    if(employeename.value == "" || dateofjoining.value == "" || salary.value == "" || statusofemployee ==""  ){
-        alert("Kindly fill the form!")
-    }
-    else{
-        // alert("Your form has been submitted")
-    
-        PElement.innerHTML = ( `${employeename.value}`);
-        joiningdate.innerHTML = ( `${dateofjoining.value}`);
-        employeesalary.innerHTML = ( `${salary.value}`);
-        employeestatus.innerHTML = ( `${statusofemployee.value}`);
+//     if(employeename.value == "" || dateofjoining.value == "" || salary.value == "" || statusofemployee ==""  ){
+//         // alert("Kindly fill the form!")
+// //    deletebutton.style.display = ""
+//     }
+//     else {
    
-// console.log(`The name of employee is ${employeename.value},joining date of ${employeename.value} is ${dateofjoining.value}, salary of ${employeename.value} is ${salary.value}, and staus of ${employeename.value} is ${statusofemployee.value}.`)
-}   
+//         // PElement.innerHTML = ( `${employeename.value}`);
+//         // joiningdate.innerHTML = ( `${dateofjoining.value}`);
+//         // employeesalary.innerHTML = ( `${salary.value}`);
+//         // employeestatus.innerHTML = ( `${statusofemployee.value}`);
 
-    employeename.value = "";
-        dateofjoining.value = "";
-        salary.value = "";
-        statusofemployee.value = "";
-})
+//   let  newarray = []
 
+
+
+
+
+        
+
+    // (employeename.value,dateofjoining.value,salary.value,statusofemployee.value);
+  
+
+        // deletebutton.style.display = "block  
+// }
     
-</script>
 
+    })
+
+    let arrays=[]
+    function addEntry(){
+        const PElement = document.querySelector("#first-employee-id")
+        let employeename = document.getElementById('employee-name').value;
+    
+        const joiningdate = document.getElementById("joining-date").value;
+        const employeesalary = document.getElementById("employee-salary").value;
+        const employeestatus = document.
+        getElementById("status").value;
+        let newarray =  {employeename,joiningdate,employeesalary,employeestatus};
+        arrays.push(newarray)
+        console.log(arrays)
+
+        // const map1 = newarray.map((x) => x *2);
+        // console.log(map1)
+        
+    }
+ 
+    
+
+
+
+</script>
 
 
 </body>
